@@ -1,0 +1,16 @@
+<ul *ngIf="movies.length > 0; else waitingForMovies">
+
+    <li *ngFor="let movie of movies">
+        <div>
+        <p>name: 
+            <a [routerLink]="['/movie', movie.ID]">{{movie.Title}}</a>
+            <button (click)="deleteMovie(movie.ID)">❌</button>
+        </p>
+        </div>
+    </li>
+    
+    </ul>
+    
+    <ng-template #waitingForMovies>
+        <p>getting movies...</p>
+    </ng-template>
